@@ -27,11 +27,21 @@
 
 .header__main-menu li {
 	margin-right: 10px;
+	transition: all .5s;
+}
+
+.header__main-menu li:hover {
+	opacity: .5;
 }
 
 .header__menu--more {
 	display: flex;
 	align-items: center;
+	cursor: pointer;
+}
+
+.header__menu--img span {
+	font-size: 18px;
 }
 
 .header__main-menu li a{
@@ -59,6 +69,11 @@
 	margin-right: 10px;
 	color: #333;
 	font-size: 17px;
+	transition: all .5s;
+}
+
+.sign-group__sign a:hover{
+	opacity: .7;
 }
 
 .sign-group__sign-up--btn {
