@@ -26,4 +26,27 @@ const msg = item ?
 // 결과 출력
 alert(msg);
 
-// 아래에 getItemByAmount 함수를 작성하세요.
+// data, amount 를 받아서 살수 있는 가장 비싼 음식인 possibleDish 를 반환함. 
+function getItemByAmount(data, amount) {
+	// 유혀성 검사 amount가 글자면 NaN 이 되는것, 0이하 검사 
+	if (amount <= 0 || !(amount)) return null;
+	
+	let possibleDish = {
+		name: '',
+		price: 0,
+	};
+
+	data.forEach(dish => {
+		const {name, price} = dish
+
+		if (price > amount) return;
+
+		if (possibleDish.price < price) {
+			possibleDish.name = name;
+			possibleDish.price = price;
+		}
+	})
+
+	// possibleDish 에 price가 0이 아니면 possibleDish가 존재함. 
+	return possibleDish.price? possibleDish: null;
+}
