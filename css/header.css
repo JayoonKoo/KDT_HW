@@ -64,14 +64,20 @@
 	padding: 0 10px;
 }
 
-.sign-group__sign a{
+.sign-group__sign button{
 	margin-right: 10px;
 	color: #333;
 	font-size: 17px;
 	transition: all .5s;
+	background-color: #fff;
+	cursor: pointer;
 }
 
-.sign-group__sign a:hover{
+.sign-group__sign-in {
+	border: none;
+}
+
+.sign-group__sign button:hover{
 	opacity: .7;
 }
 
