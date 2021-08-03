@@ -5,9 +5,12 @@ import os
 
 
 def main():
-    keyword = input('원하는 키워드를 입력하세요: ')
+    keyword, file_name = '', ''
+    while(not keyword or not file_name):
+        keyword = input('원하는 키워드를 입력하세요: ')
+        file_name = input('저장할 파일명을 입력하세요(현재 경로 아니라면 경로 포함): ')
+    file_name = set_filename(file_name)
     crawler = NaverNewsCrawler(keyword)
-    file_name = input('저장할 파일명을 입력하세요(현재 경로 아니라면 경로 포함): ')
     crawler.get_news(file_name)
 
     # 이메일 확인
@@ -33,7 +36,11 @@ def get_addrs():
     return addrs
 
 
-def validate_excel(file_name):
+def set_filename(file_name):
+    name, ext = os.path.splitext(file_name)
+    if not ext == '.xlsx':
+        file_name = f'{name}.xlsx'
+    return file_name
 
 
 if __name__ == '__main__':
