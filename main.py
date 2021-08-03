@@ -5,6 +5,7 @@ import os
 
 
 def main():
+    # keyword 받고 .xlsx로 저장
     keyword, file_name = '', ''
     while(not keyword or not file_name):
         keyword = input('원하는 키워드를 입력하세요: ')
@@ -22,6 +23,11 @@ def main():
 
 
 def get_addrs():
+    """
+    엑셀에서 메일 보내야할 주소를 읽어서 addrs 반환하는 함수
+    Returns:
+        addrs
+    """
     wb = load_workbook('email list_fastcampus news.xlsx')
     data = wb.active
     area = data['B3:C4']
@@ -37,6 +43,15 @@ def get_addrs():
 
 
 def set_filename(file_name):
+    """
+    file_name 검증 후 엑셀 파일 확장자로 수정하는 함수
+
+    Args: 
+        file_name: 사용자로 부터 입력받은 파일 형식
+
+    Returns:
+        file_name: 파일 형식 변경 후 리턴
+    """
     name, ext = os.path.splitext(file_name)
     if not ext == '.xlsx':
         file_name = f'{name}.xlsx'
